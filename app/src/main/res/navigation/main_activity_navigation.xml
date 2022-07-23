@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_navigation"
+    app:startDestination="@id/mainpageFragment">
+
+    <fragment
+        android:id="@+id/mainpageFragment"
+        android:name="poyraz.apps.foodorder.ui.fragment.MainpageFragment"
+        android:label="MainpageFragment"
+        tools:layout="@layout/fragment_mainpage">
+        <action
+            android:id="@+id/mainpage2details"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/mainpage2basket"
+            app:destination="@id/basketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="poyraz.apps.foodorder.ui.fragment.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"
+        >
+        <argument
+            android:name="foodDetails"
+            app:argType="poyraz.apps.foodorder.data.entity.Foods" />
+        <action
+            android:id="@+id/details2basket"
+            app:destination="@id/basketFragment"
+            app:popUpTo="@id/mainpageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basketFragment"
+        android:name="poyraz.apps.foodorder.ui.fragment.BasketFragment"
+        android:label="BasketFragment"
+        tools:layout="@layout/fragment_basket"
+        />
+</navigation>
